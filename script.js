@@ -134,7 +134,7 @@ function resetForm() {
 
 }
 
-function openDatabase() {
+async function openDatabase() {
 
     let pass = prompt("กรุณาใส่รหัสผ่าน");
 
@@ -145,60 +145,38 @@ function openDatabase() {
 
     let html = "";
 
-    for(let i=0;i<localStorage.length;i++){
+    const querySnapshot =
+    await getDocs(collection(db,"customers"));
 
-        let key = localStorage.key(i);
+    querySnapshot.forEach((doc)=>{
 
-        if(key.startsWith("plate_")){
+        const item = doc.data();
 
-            let item = JSON.parse(localStorage.getItem(key));
-
-          html += `
-<label>
-<input type="checkbox" class="deleteItem" value="${key}">
-${key.replace("plate_","")} |
-${item.bike} |
-${item.total} บาท
-<br>
-📅 ${item.date}
-(วัน${item.day})
-⏰ ${item.time}
-</label><br><br>
-`;
-        }
-    }
-    html += "<hr><h3>โค้ดส่วนลด</h3>";
-
-for(let i=0;i<localStorage.length;i++){
-
-    let key = localStorage.key(i);
-
-    if(key.startsWith("coupon_")){
-
-        let coupon =
-JSON.parse(localStorage.getItem(key));
-
-html +=
-key.replace("coupon_","") +
-" ลด " +
-coupon.amount +
-" บาท<br>";
-
-    }
-
-}
+        html += `
+        <label>
+        ${item.plate} |
+        ${item.bike} |
+        ${item.total} บาท
+        <br>
+        📅 ${item.date}
+        ⏰ ${item.time}
+        </label>
+        <br><br>
+        `;
+    });
 
     document.getElementById("databaseList").innerHTML =
-        html || "ยังไม่มีข้อมูล";
+    html || "ยังไม่มีข้อมูล";
 
-    document.getElementById("databaseBox").style.display =
-        "block";
+  document.getElementById("databaseBox").style.display =
+"block";
 }
 
 function closeDatabase(){
 
     document.getElementById("databaseBox").style.display =
-        "none";
+    "none";
+
 }
 
 function deleteSelected(){
