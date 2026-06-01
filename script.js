@@ -233,7 +233,7 @@ async function saveAndReset() {
 
         alert("บันทึกข้อมูลเข้า Firebase สำเร็จ");
 
-        resetForm();
+       
 
     } catch(error) {
 
