@@ -251,10 +251,8 @@ function sendToAdmin() {
     let plate = document.getElementById("plate").value;
     let bike = document.getElementById("bike").value;
 
-    let total = 0;
-    let services = [];
-
-    document.querySelectorAll('.service:checked').forEach(item => {
+    let total = lastTotal;
+let services = lastServices;
 
         total += Number(item.value);
 
