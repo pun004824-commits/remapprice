@@ -1,3 +1,13 @@
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
 function calcPrice() {
 
     let plate = document.getElementById("plate").value;
@@ -214,42 +224,48 @@ function deleteSelected(){
     openDatabase();
 }
 
-function saveAndReset() {
+async function saveAndReset() {
 
     let plate = document.getElementById("plate").value;
     let bike = document.getElementById("bike").value;
 
     if (plate == "") {
-
         alert("กรุณากรอกเลขทะเบียน");
-
         return;
     }
 
     let total = 0;
 
     document.querySelectorAll('.service:checked').forEach(item => {
-
         total += Number(item.value);
-
     });
 
-    localStorage.setItem(
-        "plate_" + plate,
-        JSON.stringify({
-            bike: bike,
-            total: total,
-           date: new Date().toLocaleDateString('th-TH'),
-time: new Date().toLocaleTimeString('th-TH'),
-day: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"][new Date().getDay()]
-        })
-    );
+    try {
 
-    alert("บันทึกข้อมูลเรียบร้อย");
+        await addDoc(
+            collection(db, "customers"),
+            {
+                plate: plate,
+                bike: bike,
+                total: total,
+                date: new Date().toLocaleDateString('th-TH'),
+                time: new Date().toLocaleTimeString('th-TH')
+            }
+        );
 
-    resetForm();
+        alert("บันทึกข้อมูลเข้า Firebase สำเร็จ");
+
+        resetForm();
+
+    } catch(error) {
+
+        console.log(error);
+
+        alert("บันทึกไม่สำเร็จ");
+
+    }
+
 }
-
 function sendToAdmin() {
 
     let plate = document.getElementById("plate").value;
