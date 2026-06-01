@@ -1,6 +1,5 @@
-let lastTotal = 0;
-let lastServices = [];
 import { db } from "./firebase.js";
+
 import {
   collection,
   addDoc,
@@ -9,11 +8,12 @@ import {
   doc
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
+let lastTotal = 0;
+let lastServices = [];
+
 function calcPrice() {
   
-   lastTotal = finalPrice;
-   lastServices = services;  
-    let finalPrice = total - discount;
+  
     let plate = document.getElementById("plate").value;
     let bike = document.getElementById("bike").value;
 
@@ -39,17 +39,18 @@ if(oldData){
 }
 
 
-  let total = lastTotal;
-let services = lastServices;
+let total = 0;
+let services = [];
 
-        total += Number(item.value);
+document.querySelectorAll('.service:checked').forEach(item => {
 
-        services.push(
-            item.parentElement.textContent.trim()
-        );
+    total += Number(item.value);
 
-    });
+    services.push(
+        item.parentElement.textContent.trim()
+    );
 
+});
 
 let coupon =
 document.getElementById("coupon").value.toUpperCase();
@@ -87,6 +88,9 @@ let finalPrice = total - discount;
 if(finalPrice < 0){
     finalPrice = 0;
 }
+
+lastTotal = finalPrice;
+lastServices = [...services];
 
     document.getElementById('result').innerHTML =
 
@@ -217,8 +221,9 @@ async function saveAndReset() {
     let total = 0;
 
     document.querySelectorAll('.service:checked').forEach(item => {
-        total += Number(item.value);
-    });
+
+    total += Number(item.value);
+});
 
     try {
 
@@ -252,15 +257,7 @@ function sendToAdmin() {
     let bike = document.getElementById("bike").value;
 
     let total = lastTotal;
-let services = lastServices;
-
-        total += Number(item.value);
-
-        services.push(
-            item.parentElement.textContent.trim()
-        );
-
-    });
+    let services = lastServices;
 
     let message =
 `PUN FLASH ECU
