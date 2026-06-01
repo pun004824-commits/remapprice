@@ -116,7 +116,7 @@ ${services.join("<br>")}<br><br>
         "plate_" + plate,
         JSON.stringify({
             bike: bike,
-            total: total,
+            total: finalPrice,
           date: new Date().toLocaleDateString('th-TH'),
 time: new Date().toLocaleTimeString('th-TH'),
 day: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"][new Date().getDay()]
@@ -231,12 +231,7 @@ async function saveAndReset() {
         return;
     }
 
-    let total = 0;
-
-    document.querySelectorAll('.service:checked').forEach(item => {
-
-    total += Number(item.value);
-});
+ let total = lastTotal;
 
     try {
 
@@ -290,10 +285,10 @@ ${services.join('\n')}
         "คัดลอกข้อมูลแล้ว\n\nกด OK เพื่อเปิดแชทเฟส"
     );
 
-    window.open(
-        "https://www.facebook.com/thir.sakdi.330230?locale=th_TH",
-        "_blank"
-    );
+   window.open(
+"https://m.me/thir.sakdi.330230",
+"_blank"
+);
 }
 
 window.onload = function(){
