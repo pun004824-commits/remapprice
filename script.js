@@ -231,7 +231,7 @@ async function saveAndReset() {
             }
         );
 
-        alert("บันทึกข้อมูลเข้า Firebase สำเร็จ");
+       alert("บันทึกข้อมูลเข้า Firebase สำเร็จ\nสามารถกดส่งข้อมูลต่อได้");
 
        
 
