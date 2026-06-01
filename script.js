@@ -1,5 +1,6 @@
+let lastTotal = 0;
+let lastServices = [];
 import { db } from "./firebase.js";
-
 import {
   collection,
   addDoc,
@@ -9,7 +10,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 function calcPrice() {
-
+  
+   lastTotal = finalPrice;
+   lastServices = services;  
+    let finalPrice = total - discount;
     let plate = document.getElementById("plate").value;
     let bike = document.getElementById("bike").value;
 
@@ -35,10 +39,8 @@ if(oldData){
 }
 
 
-    let total = 0;
-    let services = [];
-
-    document.querySelectorAll('.service:checked').forEach(item => {
+  let total = lastTotal;
+let services = lastServices;
 
         total += Number(item.value);
 
