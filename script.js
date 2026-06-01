@@ -158,17 +158,22 @@ async function openDatabase() {
 
         const item = doc.data();
 
-        html += `
-        <label>
-        ${item.plate} |
-        ${item.bike} |
-        ${item.total} บาท
-        <br>
-        📅 ${item.date}
-        ⏰ ${item.time}
-        </label>
-        <br><br>
-        `;
+       html += `
+<label>
+<input type="checkbox"
+class="deleteItem"
+value="${doc.id}">
+
+${item.plate} |
+${item.bike} |
+${item.total} บาท
+
+<br>
+📅 ${item.date}
+⏰ ${item.time}
+</label>
+<br><br>
+`;
     });
 
     document.getElementById("databaseList").innerHTML =
@@ -185,23 +190,31 @@ function closeDatabase(){
 
 }
 
-function deleteSelected(){
+async function deleteSelected(){
 
     let selected =
-        document.querySelectorAll(".deleteItem:checked");
+    document.querySelectorAll(".deleteItem:checked");
 
     if(selected.length === 0){
-
         alert("กรุณาเลือกรายการ");
-
         return;
     }
 
-    selected.forEach(item => {
+    if(!confirm("ยืนยันการลบ ?")){
+        return;
+    }
 
-        localStorage.removeItem(item.value);
+    for(const item of selected){
 
-    });
+        await deleteDoc(
+            doc(
+                db,
+                "customers",
+                item.value
+            )
+        );
+
+    }
 
     alert("ลบข้อมูลเรียบร้อย");
 
