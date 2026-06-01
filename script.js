@@ -420,3 +420,15 @@ function showWarning(){
 function closeWarning(){
     document.getElementById("warningPopup").style.display="none";
 }
+
+window.calcPrice = calcPrice;
+window.saveAndReset = saveAndReset;
+window.sendToAdmin = sendToAdmin;
+window.resetForm = resetForm;
+window.openDatabase = openDatabase;
+window.closeDatabase = closeDatabase;
+window.deleteSelected = deleteSelected;
+window.addCoupon = addCoupon;
+window.deleteCoupons = deleteCoupons;
+window.showWarning = showWarning;
+window.closeWarning = closeWarning;
