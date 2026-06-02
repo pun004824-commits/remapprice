@@ -383,3 +383,19 @@ window.addCoupon = addCoupon;
 window.deleteCoupons = deleteCoupons;
 window.showWarning = showWarning;
 window.closeWarning = closeWarning;
+
+function adminLogin(){
+
+let pass = prompt("กรุณาใส่รหัสผ่านแอดมิน");
+
+if(pass !== "Pun Flash ecu."){
+alert("รหัสผ่านไม่ถูกต้อง");
+return;
+}
+
+document.getElementById("adminPanel").style.display =
+"block";
+
+alert("เข้าสู่โหมดแอดมินสำเร็จ");
+
+}
