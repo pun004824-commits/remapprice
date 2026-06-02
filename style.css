@@ -13,7 +13,8 @@ padding:20px;
 }
 
 .container{
-max-width:1300px;
+max-width:1600px;
+width:95%;
 margin:auto;
 }
 
@@ -64,6 +65,10 @@ display:flex;
 align-items:center;
 gap:15px;
 
+    position:relative;
+
+box-shadow:
+inset 0 0 15px rgba(196,0,255,.08);
 background:rgba(255,255,255,.04);
 
 backdrop-filter:blur(10px);
@@ -108,12 +113,16 @@ box-shadow:
 }
 
 .service{
-width:24px;
-height:24px;
-accent-color:#ff2d2d;
+width:22px;
+height:22px;
+
+accent-color:#c400ff;
+
+cursor:pointer;
 }
 
 .btn-box{
+    justify-content:center;
 display:flex;
 flex-wrap:wrap;
 gap:10px;
@@ -161,6 +170,9 @@ box-shadow:
 #result{
 margin-top:25px;
 
+    min-height:180px;
+
+backdrop-filter:blur(15px);
 background:
 linear-gradient(
 135deg,
