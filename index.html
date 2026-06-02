@@ -250,65 +250,25 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 
 <button onclick="resetForm()">รีเซ็ต</button>
 
-<button onclick="openDatabase()">ฐานข้อมูลลูกค้า</button>
-<button onclick="addCoupon()">
-🎁 เพิ่มโค้ดส่วนลด
-</button>
-
 <button onclick="showWarning()">
 ⚠️ คำเตือน
 </button>
 
+<div id="adminPanel" style="display:none; margin-top:10px;">
 
-</div>
-
-<br><br>
-
-<div id="databaseBox" style="display:none;">
-    <h3>ฐานข้อมูลลูกค้า</h3>
-
-    <button onclick="deleteCoupons()">
-ลบโค้ดส่วนลดทั้งหมด
+<button onclick="openDatabase()">
+ฐานข้อมูลลูกค้า
 </button>
 
-    <div id="databaseList"></div>
+<button onclick="addCoupon()">
+🎁 เพิ่มโค้ดส่วนลด
+</button>
 
-    <br>
-
-    <button onclick="deleteSelected()">
-        ลบรายการที่เลือก
-    </button>
-
-    <button onclick="closeDatabase()">
-        ปิด
-    </button>
-</div>
+<button onclick="addService()">
+➕ เพิ่มรายการ
+</button>
 
 </div>
-
-</div>
-
-<div class="right-panel">
-
-<h2>ผลการคำนวณ</h2>
-
-<div id="result">
-    ยังไม่ได้คำนวณราคา
-</div>
-
-</div>
-
-
-<script type="module" src="script.js"></script>
-
-</body>
-
-<div id="warningPopup" class="popup">
-
-<div class="popup-box">
-
-<h2>⚠️ คำเตือน</h2>
-
 <p>
 หากจูนรถกับทางร้านแล้ว กรุณาอย่านำรถไปรีแมพหรือปรับแต่งกับร้านอื่น<br><br>
 
