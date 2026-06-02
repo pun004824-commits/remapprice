@@ -450,3 +450,29 @@ font-size:16px;
 .popup-box button{
 margin-top:20px;
 }
+
+.title{
+text-align:center;
+font-size:42px;
+font-weight:800;
+color:white;
+
+margin-top:15px;
+
+text-shadow:
+0 0 10px #c400ff,
+0 0 25px #c400ff,
+0 0 50px #c400ff;
+}
+
+.subtitle{
+text-align:center;
+color:#d26cff;
+
+letter-spacing:5px;
+
+font-size:15px;
+
+margin-top:8px;
+margin-bottom:25px;
+}
