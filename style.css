@@ -61,6 +61,8 @@ box-shadow:0 0 15px rgba(255,0,0,.4);
 }
 
 .service-card{
+    cursor:pointer;
+    border:1px solid rgba(196,0,255,.15);
 display:flex;
 align-items:center;
 gap:15px;
@@ -170,6 +172,8 @@ box-shadow:
 #result{
 margin-top:25px;
 
+    max-width:900px;
+margin:25px auto 0;
     min-height:180px;
 
 backdrop-filter:blur(15px);
