@@ -64,9 +64,11 @@ display:flex;
 align-items:center;
 gap:15px;
 
-background:rgba(255,255,255,.03);
+background:rgba(255,255,255,.04);
 
-border-left:4px solid #b400ff;
+backdrop-filter:blur(10px);
+
+border-left:4px solid #c400ff;
 
 padding:18px;
 margin-bottom:12px;
@@ -74,6 +76,9 @@ margin-bottom:12px;
 border-radius:15px;
 
 transition:.25s;
+
+box-shadow:
+0 0 15px rgba(196,0,255,.12);
 }
 
 #databaseBox label{
@@ -139,7 +144,8 @@ cursor:pointer;
 transition:.25s;
 
 box-shadow:
-0 0 10px rgba(255,0,0,.3);
+0 0 10px #c400ff,
+0 0 20px rgba(196,0,255,.4);
 }
 
 button:hover{
@@ -155,16 +161,21 @@ box-shadow:
 #result{
 margin-top:25px;
 
-background:rgba(255,255,255,.03);
+background:
+linear-gradient(
+135deg,
+rgba(196,0,255,.15),
+rgba(0,0,0,.8)
+);
 
-border:1px solid #b400ff;
+border:1px solid #c400ff;
 
 border-radius:20px;
 
 padding:20px;
 
 box-shadow:
-0 0 20px rgba(255,0,0,.2);
+0 0 20px rgba(196,0,255,.3);
 }
 
 #databaseBox{
