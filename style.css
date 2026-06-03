@@ -556,7 +556,8 @@ box-shadow:
 0 0 30px rgba(255,0,0,.5);
 }
 
-#databaseBox{
+#databaseBox,
+#couponBox{
     width:100%;
     max-width:1200px;
     margin:30px auto;
@@ -585,4 +586,18 @@ height:22px;
 accent-color:#b300ff;
 
 margin-left:15px;
+}
+
+#couponBox{
+max-width:900px;
+margin:25px auto 0;
+
+background:#0b0b0b;
+
+border:1px solid #ff0000;
+border-radius:15px;
+
+padding:20px;
+
+box-sizing:border-box;
 }
