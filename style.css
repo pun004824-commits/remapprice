@@ -555,3 +555,10 @@ max-width:700px;
 box-shadow:
 0 0 30px rgba(255,0,0,.5);
 }
+
+#databaseBox{
+    width:100%;
+    max-width:1200px;
+    margin:30px auto;
+    box-sizing:border-box;
+}
