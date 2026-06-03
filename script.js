@@ -420,3 +420,91 @@ window.showWarning = showWarning;
 window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
 window.addService = addService;
+
+function openCouponDatabase(){
+
+let html = "";
+
+for(let i=0;i<localStorage.length;i++){
+
+let key = localStorage.key(i);
+
+if(key.startsWith("coupon_")){
+
+let coupon =
+JSON.parse(localStorage.getItem(key));
+
+html += `
+
+<label>
+
+<input
+type="checkbox"
+class="couponDelete"
+value="${key}">
+
+🎟️ ${key.replace("coupon_","")}
+
+<br>
+
+💸 ส่วนลด ${coupon.amount} บาท
+
+</label>
+
+<br><br>
+
+`;
+
+}
+
+}
+
+document.getElementById("couponList").innerHTML =
+html || "ยังไม่มีโค้ด";
+
+document.getElementById("couponBox").style.display =
+"block";
+
+}
+
+function closeCouponBox(){
+
+document.getElementById("couponBox").style.display =
+"none";
+
+}
+
+function deleteSelectedCoupons(){
+
+let selected =
+document.querySelectorAll(".couponDelete:checked");
+
+if(selected.length === 0){
+alert("กรุณาเลือกโค้ด");
+return;
+}
+
+if(!confirm("ยืนยันการลบ ?")){
+return;
+}
+
+selected.forEach(item=>{
+
+localStorage.removeItem(item.value);
+
+});
+
+alert("ลบสำเร็จ");
+
+openCouponDatabase();
+
+}
+
+window.openCouponDatabase =
+openCouponDatabase;
+
+window.closeCouponBox =
+closeCouponBox;
+
+window.deleteSelectedCoupons =
+deleteSelectedCoupons;
