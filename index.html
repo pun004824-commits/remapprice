@@ -263,29 +263,19 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 
 <div id="adminPanel" style="display:none; margin-top:15px;">
 
-<div id="databaseBox" style="display:none;">
-
-<h3>ฐานข้อมูลลูกค้า</h3>
-
-<button onclick="deleteCoupons()">
-ลบโค้ดส่วนลดทั้งหมด
+<button onclick="openDatabase()">
+ฐานข้อมูลลูกค้า
 </button>
 
-<div id="databaseList"></div>
-
-<br>
-
-<button onclick="deleteSelected()">
-ลบรายการที่เลือก
+<button onclick="addCoupon()">
+🎁 เพิ่มโค้ดส่วนลด
 </button>
 
-<button onclick="closeDatabase()">
-ปิด
+<button onclick="addService()">
+➕ เพิ่มรายการ
 </button>
 
 </div>
-
-
 
 </div>
 
@@ -298,6 +288,48 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 <div id="result">
 ยังไม่ได้คำนวณราคา
 </div>
+<div id="databaseBox" style="display:none;">
+ <div id="adminPanel" style="display:none; margin-top:15px;">
+
+<button onclick="openDatabase()">
+ฐานข้อมูลลูกค้า
+</button>
+
+<button onclick="addCoupon()">
+🎁 เพิ่มโค้ดส่วนลด
+</button>
+
+<button onclick="addService()">
+➕ เพิ่มรายการ
+</button>
+
+</div>
+
+<div id="result">
+ยังไม่ได้คำนวณราคา
+</div>
+
+<div id="databaseBox" style="display:none;">
+  <div id="adminPanel" style="display:none; margin-top:15px;">
+
+<button onclick="openDatabase()">
+ฐานข้อมูลลูกค้า
+</button>
+
+<button onclick="addCoupon()">
+🎁 เพิ่มโค้ดส่วนลด
+</button>
+
+<button onclick="addService()">
+➕ เพิ่มรายการ
+</button>
+
+</div>
+
+<div id="result">
+ยังไม่ได้คำนวณราคา
+</div>
+
 <div id="databaseBox" style="display:none;">
     <h3>ฐานข้อมูลลูกค้า</h3>
 
