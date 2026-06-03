@@ -562,3 +562,27 @@ box-shadow:
     margin:30px auto;
     box-sizing:border-box;
 }
+
+#couponBox label{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px;
+margin:10px 0;
+
+background:#111;
+border:1px solid #a100ff;
+border-radius:12px;
+
+color:white;
+}
+
+#couponBox input[type="checkbox"]{
+width:22px;
+height:22px;
+
+accent-color:#b300ff;
+
+margin-left:15px;
+}
