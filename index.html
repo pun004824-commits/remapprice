@@ -286,3 +286,70 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 
 </body>
 </html>
+
+<script type="module" src="script.js"></script>
+
+<div id="databaseBox" style="display:none;">
+    <h3>ฐานข้อมูลลูกค้า</h3>
+
+    <button onclick="deleteCoupons()">
+        ลบโค้ดส่วนลดทั้งหมด
+    </button>
+
+    <div id="databaseList"></div>
+
+    <br>
+
+    <button onclick="deleteSelected()">
+        ลบรายการที่เลือก
+    </button>
+
+    <button onclick="closeDatabase()">
+        ปิด
+    </button>
+</div>
+
+
+<div id="warningPopup" class="popup">
+
+<div class="popup-box">
+
+<h2>⚠️ คำเตือน</h2>
+
+<p>
+หากจูนรถกับทางร้านแล้ว กรุณาอย่านำรถไปรีแมพหรือปรับแต่งกับร้านอื่น<br><br>
+
+หากไม่ทำตามจะถือว่าเป็นการย้ายค่าย<br><br>
+
+ห้ามเปลี่ยนอะไหล่หรือเปลี่ยนสเต็ปเอง กรุณาแจ้งทางร้านก่อนทุกครั้ง<br><br>
+
+หากต้องการเปลี่ยนสเต็ปหรือนัดหมาย กรุณาติดต่อก่อนเข้ารับบริการ<br><br>
+
+กรุณาตรวจสอบน้ำมันเครื่อง เชื้อเพลิง และสภาพรถก่อนเข้ารับบริการทุกครั้ง<br><br>
+
+มีข้อสงสัยสามารถสอบถามได้ตลอดครับ
+</p>
+
+<button onclick="closeWarning()">
+รับทราบ
+</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div id="databaseBox">
+...
+</div>
+
+<div id="warningPopup">
+...
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
