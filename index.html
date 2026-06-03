@@ -263,17 +263,27 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 
 <div id="adminPanel" style="display:none; margin-top:15px;">
 
-<button onclick="openDatabase()">
-ฐานข้อมูลลูกค้า
+<div id="databaseBox" style="display:none;">
+
+<h3>ฐานข้อมูลลูกค้า</h3>
+
+<button onclick="deleteCoupons()">
+ลบโค้ดส่วนลดทั้งหมด
 </button>
 
-<button onclick="addCoupon()">
-🎁 เพิ่มโค้ดส่วนลด
+<div id="databaseList"></div>
+
+<br>
+
+<button onclick="deleteSelected()">
+ลบรายการที่เลือก
 </button>
 
-    <button onclick="deleteCoupons()">
-🗑️ ลบโค้ดส่วนลด
+<button onclick="closeDatabase()">
+ปิด
 </button>
+
+</div>
 
 
 
