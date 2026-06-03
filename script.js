@@ -374,6 +374,8 @@ function closeWarning(){
 }
 
 
+function adminLogin(){
+
 let pass = prompt("กรุณาใส่รหัสผ่านแอดมิน");
 
 if(pass !== "Pun Flash ecu."){
@@ -385,19 +387,6 @@ document.getElementById("adminPanel").style.display =
 "block";
 
 alert("เข้าสู่โหมดแอดมินสำเร็จ");
-
-}
-
-function addService(){
-
-let pass = prompt("กรุณาใส่รหัสผ่าน");
-
-if(pass !== "Pun Flash ecu."){
-alert("รหัสผ่านไม่ถูกต้อง");
-return;
-}
-
-alert("ระบบเพิ่มรายการยังไม่ได้สร้าง");
 
 }
 
@@ -415,4 +404,4 @@ window.deleteCoupons = deleteCoupons;
 window.showWarning = showWarning;
 window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
-function adminLogin(){
+window.addService = addService;
