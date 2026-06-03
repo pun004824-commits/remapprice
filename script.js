@@ -105,6 +105,7 @@ lastServices = [...services];
 ${services.join("<br>")}<br><br>
 
 ราคารวม : ${total} บาท<br>
+โค้ดส่วนลด : ${coupon || "-"}<br>
 ส่วนลด : ${discount} บาท<br><br>
 
 <h2 style="color:#00ff66">
