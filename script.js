@@ -389,9 +389,18 @@ document.getElementById("adminPanel").style.display =
 alert("เข้าสู่โหมดแอดมินสำเร็จ");
 
 }
+function addService(){
 
-window.addService = addService;
+let pass = prompt("กรุณาใส่รหัสผ่าน");
 
+if(pass !== "Pun Flash ecu."){
+alert("รหัสผ่านไม่ถูกต้อง");
+return;
+}
+
+alert("ระบบเพิ่มรายการยังไม่ได้สร้าง");
+
+}
 window.calcPrice = calcPrice;
 window.saveAndReset = saveAndReset;
 window.sendToAdmin = sendToAdmin;
