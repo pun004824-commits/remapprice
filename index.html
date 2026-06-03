@@ -269,6 +269,10 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 
 <button onclick="addService()">➕ เพิ่มรายการ</button>
 
+    <button onclick="openCouponDatabase()">
+🎟️ โค้ดส่วนลด
+</button>
+
 </div>
 
 </div>
@@ -296,6 +300,24 @@ placeholder="โค้ดส่วนลด (ถ้ามี)">
 </button>
 
 <button onclick="closeDatabase()">
+ปิด
+</button>
+
+</div>
+
+    <div id="couponBox" style="display:none;">
+
+<h3>ฐานข้อมูลโค้ดส่วนลด</h3>
+
+<div id="couponList"></div>
+
+<br>
+
+<button onclick="deleteSelectedCoupons()">
+ลบโค้ดที่เลือก
+</button>
+
+<button onclick="closeCouponBox()">
 ปิด
 </button>
 
