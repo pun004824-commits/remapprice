@@ -373,19 +373,6 @@ function closeWarning(){
     document.getElementById("warningPopup").style.display="none";
 }
 
-window.calcPrice = calcPrice;
-window.saveAndReset = saveAndReset;
-window.sendToAdmin = sendToAdmin;
-window.resetForm = resetForm;
-window.openDatabase = openDatabase;
-window.closeDatabase = closeDatabase;
-window.deleteSelected = deleteSelected;
-window.addCoupon = addCoupon;
-window.deleteCoupons = deleteCoupons;
-window.showWarning = showWarning;
-window.closeWarning = closeWarning;
-window.adminLogin = adminLogin;
-function adminLogin(){
 
 let pass = prompt("กรุณาใส่รหัสผ่านแอดมิน");
 
@@ -400,3 +387,32 @@ document.getElementById("adminPanel").style.display =
 alert("เข้าสู่โหมดแอดมินสำเร็จ");
 
 }
+
+function addService(){
+
+let pass = prompt("กรุณาใส่รหัสผ่าน");
+
+if(pass !== "Pun Flash ecu."){
+alert("รหัสผ่านไม่ถูกต้อง");
+return;
+}
+
+alert("ระบบเพิ่มรายการยังไม่ได้สร้าง");
+
+}
+
+window.addService = addService;
+
+window.calcPrice = calcPrice;
+window.saveAndReset = saveAndReset;
+window.sendToAdmin = sendToAdmin;
+window.resetForm = resetForm;
+window.openDatabase = openDatabase;
+window.closeDatabase = closeDatabase;
+window.deleteSelected = deleteSelected;
+window.addCoupon = addCoupon;
+window.deleteCoupons = deleteCoupons;
+window.showWarning = showWarning;
+window.closeWarning = closeWarning;
+window.adminLogin = adminLogin;
+function adminLogin(){
