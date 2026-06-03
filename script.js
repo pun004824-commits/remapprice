@@ -159,22 +159,23 @@ async function openDatabase() {
 
         const item = doc.data();
 
-    html += `
+   html += `
 <label>
 
-${item.plate} |
-${item.bike} |
-${item.total} บาท
+<div>
+
+🎟️ ${key.replace("coupon_","")}
 
 <br>
 
-🎁 โค้ด :
-${item.coupon || "-"}
+💸 ส่วนลด ${coupon.amount} บาท
 
-<br>
+</div>
 
-📅 ${item.date}
-⏰ ${item.time}
+<input
+type="checkbox"
+class="couponDelete"
+value="${key}">
 
 </label>
 `;
