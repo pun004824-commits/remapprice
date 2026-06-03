@@ -405,7 +405,35 @@ alert("รหัสผ่านไม่ถูกต้อง");
 return;
 }
 
-alert("ระบบเพิ่มรายการยังไม่ได้สร้าง");
+let name = prompt("ชื่อรายการ");
+
+if(!name) return;
+
+let detail = prompt("รายละเอียด");
+
+if(!detail) detail = "-";
+
+let price = prompt("ราคา");
+
+if(!price) return;
+
+let services =
+JSON.parse(localStorage.getItem("customServices") || "[]");
+
+services.push({
+name:name,
+detail:detail,
+price:price
+});
+
+localStorage.setItem(
+"customServices",
+JSON.stringify(services)
+);
+
+alert("เพิ่มรายการสำเร็จ");
+
+location.reload();
 
 }
 window.calcPrice = calcPrice;
