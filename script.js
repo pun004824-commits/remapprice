@@ -383,7 +383,7 @@ window.addCoupon = addCoupon;
 window.deleteCoupons = deleteCoupons;
 window.showWarning = showWarning;
 window.closeWarning = closeWarning;
-
+window.adminLogin = adminLogin;
 function adminLogin(){
 
 let pass = prompt("กรุณาใส่รหัสผ่านแอดมิน");
