@@ -159,21 +159,24 @@ async function openDatabase() {
 
         const item = doc.data();
 
-       html += `
+    html += `
 <label>
-<input type="checkbox"
-class="deleteItem"
-value="${doc.id}">
 
 ${item.plate} |
 ${item.bike} |
 ${item.total} บาท
 
 <br>
+
+🎁 โค้ด :
+${item.coupon || "-"}
+
+<br>
+
 📅 ${item.date}
 ⏰ ${item.time}
+
 </label>
-<br><br>
 `;
     });
 
@@ -237,15 +240,18 @@ async function saveAndReset() {
     try {
 
         await addDoc(
-            collection(db, "customers"),
-            {
-                plate: plate,
-                bike: bike,
-                total: total,
-                date: new Date().toLocaleDateString('th-TH'),
-                time: new Date().toLocaleTimeString('th-TH')
-            }
-        );
+collection(db,"customers"),
+{
+    plate: plate,
+    bike: bike,
+    total: total,
+    coupon:
+    document.getElementById("coupon").value,
+
+    date: new Date().toLocaleDateString('th-TH'),
+    time: new Date().toLocaleTimeString('th-TH')
+}
+);
 
        alert("บันทึกข้อมูลเข้า Firebase สำเร็จ\nสามารถกดส่งข้อมูลต่อได้");
 
