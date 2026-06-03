@@ -526,3 +526,32 @@ text-shadow:
 0 0 10px #c400ff,
 0 0 20px #c400ff;
 }
+
+#databaseBox{
+background:#0d0d0d;
+border:2px solid #ff0033;
+border-radius:20px;
+padding:20px;
+margin-top:20px;
+
+box-shadow:
+0 0 20px rgba(255,0,0,.4),
+0 0 60px rgba(255,0,0,.2);
+}
+
+#databaseBox h3{
+color:#ff4444;
+font-size:24px;
+margin-bottom:15px;
+}
+
+.popup-box{
+background:#111;
+border:2px solid #ff0033;
+border-radius:25px;
+padding:30px;
+max-width:700px;
+
+box-shadow:
+0 0 30px rgba(255,0,0,.5);
+}
