@@ -410,15 +410,12 @@ return;
 }
 
 let name = prompt("ชื่อรายการ");
-
 if(!name) return;
 
 let detail = prompt("รายละเอียด");
-
 if(!detail) detail = "-";
 
 let price = prompt("ราคา");
-
 if(!price) return;
 
 try{
@@ -433,22 +430,18 @@ price:Number(price)
 );
 
 alert("เพิ่มรายการสำเร็จ");
+location.reload();
 
 }catch(error){
 
 console.log(error);
-
 alert("เพิ่มรายการไม่สำเร็จ");
 
 }
 
 }
 
-alert("เพิ่มรายการสำเร็จ");
 
-location.reload();
-
-}
 window.calcPrice = calcPrice;
 window.saveAndReset = saveAndReset;
 window.sendToAdmin = sendToAdmin;
