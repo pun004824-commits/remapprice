@@ -305,11 +305,14 @@ ${services.join('\n')}
 
 window.onload = function(){
 
-   setTimeout(() => {
+loadServices();
 
-      document.getElementById("loader").style.display = "none";
+setTimeout(() => {
 
-   },5000);
+document.getElementById("loader").style.display =
+"none";
+
+},5000);
 
 }
 
@@ -455,6 +458,54 @@ window.showWarning = showWarning;
 window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
 window.addService = addService;
+
+async function loadServices(){
+
+let html = "";
+
+const querySnapshot =
+await getDocs(collection(db,"services"));
+
+querySnapshot.forEach((doc)=>{
+
+const item = doc.data();
+
+html += `
+
+<label class="service-card">
+
+<div class="service-info">
+
+<b>${item.name}</b>
+
+<br>
+
+<small>${item.detail}</small>
+
+</div>
+
+<div class="price">
+
+${item.price}฿
+
+</div>
+
+<input
+type="checkbox"
+value="${item.price}"
+class="service">
+
+</label>
+
+`;
+
+});
+
+document.getElementById(
+"customServices"
+).innerHTML = html;
+
+}
 
 function openCouponDatabase(){
 
