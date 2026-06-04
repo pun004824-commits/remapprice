@@ -20,14 +20,15 @@ margin:auto;
 
 .banner{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:10px;
 }
 
 .banner img{
 width:100%;
-max-width:900px;
+max-width:450px;
 display:block;
 margin:auto;
+}
 
 filter:
 drop-shadow(0 0 15px #c400ff)
@@ -479,12 +480,8 @@ margin-top:20px;
 }
 
 .title{
-text-align:center;
-font-size:42px;
-font-weight:800;
-color:white;
-
-margin-top:15px;
+margin-top:5px;
+}
 
 text-shadow:
 0 0 10px #c400ff,
