@@ -604,3 +604,15 @@ padding:20px;
 
 box-sizing:border-box;
 }
+
+.banner img{
+max-width:380px;
+}
+
+.banner{
+margin-bottom:5px;
+}
+
+.subtitle{
+margin-bottom:8px;
+}
