@@ -459,15 +459,8 @@ window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
 window.addService = addService;
 
-window.openServiceDatabase =
-openServiceDatabase;
 
-window.closeServiceBox =
-closeServiceBox;
-
-window.deleteSelectedServices =
-deleteSelectedServices;
-async function loadServices(){
+  
 
 let html = "";
 
@@ -683,3 +676,13 @@ alert("ลบสำเร็จ");
 openServiceDatabase();
 
 }
+
+
+window.openServiceDatabase =
+openServiceDatabase;
+
+window.closeServiceBox =
+closeServiceBox;
+
+window.deleteSelectedServices =
+deleteSelectedServices;
