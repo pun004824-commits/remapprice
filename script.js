@@ -457,15 +457,48 @@ window.deleteCoupons = deleteCoupons;
 window.showWarning = showWarning;
 window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
-window.addService = addService;
 
-
-  
+async function loadServices(){
 
 let html = "";
 
 const querySnapshot =
 await getDocs(collection(db,"services"));
+
+querySnapshot.forEach((doc)=>{
+
+const item = doc.data();
+
+html += `
+
+<label class="service-card">
+
+<div class="service-info">
+<b>${item.name}</b>
+<br>
+<small>${item.detail}</small>
+</div>
+
+<div class="price">
+${item.price}฿
+</div>
+
+<input
+type="checkbox"
+value="${item.price}"
+class="service">
+
+</label>
+
+`;
+
+});
+
+document.getElementById(
+"customServices"
+).innerHTML = html;
+
+}
 
 querySnapshot.forEach((doc)=>{
 
@@ -508,6 +541,7 @@ document.getElementById(
 
 }
 
+window.addService = addService;
 function openCouponDatabase(){
 
 let html = "";
@@ -596,93 +630,3 @@ closeCouponBox;
 window.deleteSelectedCoupons =
 deleteSelectedCoupons;
 
-async function openServiceDatabase(){
-
-let html = "";
-
-const querySnapshot =
-await getDocs(collection(db,"services"));
-
-querySnapshot.forEach((docSnap)=>{
-
-const item = docSnap.data();
-
-html += `
-
-<label>
-
-<input
-type="checkbox"
-class="serviceDelete"
-value="${docSnap.id}">
-
-${item.name}
-
-<br>
-
-💰 ${item.price} บาท
-
-</label>
-
-<br><br>
-
-`;
-
-});
-
-document.getElementById("serviceList").innerHTML =
-html || "ไม่มีรายการ";
-
-document.getElementById("serviceBox").style.display =
-"block";
-
-}
-
-function closeServiceBox(){
-
-document.getElementById("serviceBox").style.display =
-"none";
-
-}
-
-async function deleteSelectedServices(){
-
-let selected =
-document.querySelectorAll(".serviceDelete:checked");
-
-if(selected.length === 0){
-alert("กรุณาเลือกรายการ");
-return;
-}
-
-if(!confirm("ยืนยันการลบ ?")){
-return;
-}
-
-for(const item of selected){
-
-await deleteDoc(
-doc(
-db,
-"services",
-item.value
-)
-);
-
-}
-
-alert("ลบสำเร็จ");
-
-openServiceDatabase();
-
-}
-
-
-window.openServiceDatabase =
-openServiceDatabase;
-
-window.closeServiceBox =
-closeServiceBox;
-
-window.deleteSelectedServices =
-deleteSelectedServices;
