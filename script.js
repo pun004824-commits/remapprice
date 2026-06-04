@@ -400,7 +400,7 @@ document.getElementById("adminPanel").style.display =
 alert("เข้าสู่โหมดแอดมินสำเร็จ");
 
 }
-function addService(){
+async function addService(){
 
 let pass = prompt("กรุณาใส่รหัสผ่าน");
 
@@ -421,19 +421,28 @@ let price = prompt("ราคา");
 
 if(!price) return;
 
-let services =
-JSON.parse(localStorage.getItem("customServices") || "[]");
+try{
 
-services.push({
+await addDoc(
+collection(db,"services"),
+{
 name:name,
 detail:detail,
-price:price
-});
-
-localStorage.setItem(
-"customServices",
-JSON.stringify(services)
+price:Number(price)
+}
 );
+
+alert("เพิ่มรายการสำเร็จ");
+
+}catch(error){
+
+console.log(error);
+
+alert("เพิ่มรายการไม่สำเร็จ");
+
+}
+
+}
 
 alert("เพิ่มรายการสำเร็จ");
 
