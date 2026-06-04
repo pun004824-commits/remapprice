@@ -459,6 +459,14 @@ window.closeWarning = closeWarning;
 window.adminLogin = adminLogin;
 window.addService = addService;
 
+window.openServiceDatabase =
+openServiceDatabase;
+
+window.closeServiceBox =
+closeServiceBox;
+
+window.deleteSelectedServices =
+deleteSelectedServices;
 async function loadServices(){
 
 let html = "";
@@ -594,3 +602,84 @@ closeCouponBox;
 
 window.deleteSelectedCoupons =
 deleteSelectedCoupons;
+
+async function openServiceDatabase(){
+
+let html = "";
+
+const querySnapshot =
+await getDocs(collection(db,"services"));
+
+querySnapshot.forEach((docSnap)=>{
+
+const item = docSnap.data();
+
+html += `
+
+<label>
+
+<input
+type="checkbox"
+class="serviceDelete"
+value="${docSnap.id}">
+
+${item.name}
+
+<br>
+
+💰 ${item.price} บาท
+
+</label>
+
+<br><br>
+
+`;
+
+});
+
+document.getElementById("serviceList").innerHTML =
+html || "ไม่มีรายการ";
+
+document.getElementById("serviceBox").style.display =
+"block";
+
+}
+
+function closeServiceBox(){
+
+document.getElementById("serviceBox").style.display =
+"none";
+
+}
+
+async function deleteSelectedServices(){
+
+let selected =
+document.querySelectorAll(".serviceDelete:checked");
+
+if(selected.length === 0){
+alert("กรุณาเลือกรายการ");
+return;
+}
+
+if(!confirm("ยืนยันการลบ ?")){
+return;
+}
+
+for(const item of selected){
+
+await deleteDoc(
+doc(
+db,
+"services",
+item.value
+)
+);
+
+}
+
+alert("ลบสำเร็จ");
+
+openServiceDatabase();
+
+}
