@@ -500,46 +500,7 @@ document.getElementById(
 
 }
 
-querySnapshot.forEach((doc)=>{
 
-const item = doc.data();
-
-html += `
-
-<label class="service-card">
-
-<div class="service-info">
-
-<b>${item.name}</b>
-
-<br>
-
-<small>${item.detail}</small>
-
-</div>
-
-<div class="price">
-
-${item.price}฿
-
-</div>
-
-<input
-type="checkbox"
-value="${item.price}"
-class="service">
-
-</label>
-
-`;
-
-});
-
-document.getElementById(
-"customServices"
-).innerHTML = html;
-
-}
 
 window.addService = addService;
 function openCouponDatabase(){
