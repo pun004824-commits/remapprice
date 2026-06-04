@@ -251,7 +251,7 @@ async function saveAndReset() {
 
     try {
 
-        await addDoc(
+      await addDoc(
 collection(db,"customers"),
 {
     plate: plate,
@@ -261,7 +261,9 @@ collection(db,"customers"),
     document.getElementById("coupon").value,
 
     date: new Date().toLocaleDateString('th-TH'),
-    time: new Date().toLocaleTimeString('th-TH')
+    time: new Date().toLocaleTimeString('th-TH'),
+
+    day: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"][new Date().getDay()]
 }
 );
 
