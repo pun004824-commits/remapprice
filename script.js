@@ -113,16 +113,21 @@ ${services.join("<br>")}<br><br>
 </h2>
 `;
 
-    localStorage.setItem(
-        "plate_" + plate,
-        JSON.stringify({
-            bike: bike,
-            total: finalPrice,
-          date: new Date().toLocaleDateString('th-TH'),
-time: new Date().toLocaleTimeString('th-TH'),
-day: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"][new Date().getDay()]
-        })
-    );
+  await addDoc(
+collection(db,"customers"),
+{
+    plate: plate,
+    bike: bike,
+    total: total,
+    coupon:
+    document.getElementById("coupon").value,
+
+    date: new Date().toLocaleDateString('th-TH'),
+    time: new Date().toLocaleTimeString('th-TH'),
+
+    day: ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"][new Date().getDay()]
+}
+);
 
 }
 
@@ -177,6 +182,8 @@ ${item.total} บาท
 <br>
 
 📅 ${item.date}
+(${item.day || "-"})
+
 ⏰ ${item.time}
 
 </label>
