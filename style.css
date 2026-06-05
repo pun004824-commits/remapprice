@@ -719,11 +719,13 @@ transform:
 translate(-1200px,1200px)
 rotate(35deg);
 opacity:0;
-}
-
-}
 
     .container{
 position:relative;
 z-index:1;
+        
 }
+}
+
+}
+
